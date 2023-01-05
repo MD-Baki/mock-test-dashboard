@@ -16,7 +16,7 @@ interface CandidateCardProps {
         name: string;
         date: string;
         duration: string;
-        result: number;
+        result: string;
     };
     candidateName: string;
 }
@@ -60,9 +60,17 @@ const CandidateCard: FC<CandidateCardProps> = ({
                             </Text>
                             <Heading size="sm">{candidateName}</Heading>
                         </Flex>
-                        <Heading size="sm" color="#3abff8">
-                            Got {result} out of 70
-                        </Heading>
+                        <Box>
+                            {result === "00" ? (
+                                <Heading size="sm" color="#fa5667">
+                                    Not Found
+                                </Heading>
+                            ) : (
+                                <Heading size="sm" color="#3abff8">
+                                    Got {result} out of 70
+                                </Heading>
+                            )}
+                        </Box>
                     </Flex>
 
                     <Flex gap={1} align={"center"} pb="5px">
